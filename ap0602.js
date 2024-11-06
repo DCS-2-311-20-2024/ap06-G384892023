@@ -1,6 +1,6 @@
 //
 // 応用プログラミング 第6回 課題2 (ap0602.js)
-//  G38400-2023 拓殖太郎
+//  G384892023 三浦悠樹
 // $Id$
 //
 "use strict"; // 厳格モード
@@ -115,7 +115,7 @@ function init() {
 
   // レンダラーの配置
   document.getElementById("output1").appendChild(cssRenderer.domElement);
-  // document.getElementById("output1").appendChild(renderer.domElement);
+  document.getElementById("output1").appendChild(renderer.domElement);
 
   // シート選択のための設定
   const raycaster = new THREE.Raycaster();
@@ -132,14 +132,14 @@ function init() {
 
   // Windowサイズの変更処理
   window.addEventListener("resize", ()=>{
-    // cssRenderer.setSize( window.innerWidth, window.innerHeight-nameHeight );
-    // renderer.setSize( window.innerWidth, window.innerHeight-nameHeight );
+    cssRenderer.setSize( window.innerWidth, window.innerHeight-nameHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight-nameHeight );
   }, false);
 
   // 描画処理
   function update(time) {
     cssRenderer.render(scene, camera1);
-    // renderer.render(scene, camera1);
+    renderer.render(scene, camera1);
     requestAnimationFrame(update);
   }
 
